@@ -25,6 +25,9 @@ public class BasicNavigation {
             System.out.println("TEST FAILED!");
         }
 
+        System.out.println("Title: " + driver.getTitle());
+        System.out.println("URL: " + driver.getCurrentUrl());
+
         driver.navigate().back();
         Thread.sleep(3000);
         driver.navigate().forward();
