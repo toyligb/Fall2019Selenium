@@ -23,7 +23,19 @@ public class FindElementByID {
         Thread.sleep(2000);
 
         driver.findElement(By.id("wooden_spoon")).click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
+
+        String expected = "Welcome to the Secure Area. When you are done click logout below.";
+        String actual = driver.findElement(By.tagName("h4")).getText();
+
+        System.out.println(expected.equals(actual)? "TEST PASSED!" : "TEST FAILED!");
+
+        // Let's click on Logout button. It looks like a button, but it's actually a link
+        // every element with <a> tag is a link
+
+        WebElement logout = driver.findElement(By.linkText("Logout"));
+        logout.click();
+        Thread.sleep(3000);
 
         driver.quit();
 
