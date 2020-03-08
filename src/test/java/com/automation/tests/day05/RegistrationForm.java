@@ -38,6 +38,7 @@ public class RegistrationForm {
 
 
         //ADD VALIDATION PART
+        //used ternary operator
         System.out.println((driver.findElement(By.tagName("h4")).getText().equals("Well done!"))?
                             "TEST PASSED!" : "TEST FAILED!");
 
