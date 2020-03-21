@@ -73,6 +73,29 @@ public class ActionsTests {
                 build().perform();
     }
 
+    @Test
+    public void dragAndDropTest() {
+        driver.get("https://demos.telerik.com/kendo-ui/dragdrop/index");
+        driver.manage().window().maximize();
+        BrowserUtils.wait(3);
+        //click on cookies
+        driver.findElement(By.xpath("//button[text()='Accept Cookies']")).click();
+        BrowserUtils.wait(3);
+
+        WebElement earth = driver.findElement(By.id("droptarget"));
+        WebElement moon = driver.findElement(By.id("draggable"));
+
+        //actions.clickAndHold(moon).pause(2000).moveToElement(earth).pause(1000).release().build().perform();
+        actions.dragAndDrop(moon, earth).perform();
+        BrowserUtils.wait(3);
+
+        String expected = "You did great!";
+        String actual = earth.getText();
+        //System.out.println(actual);
+
+        Assert.assertEquals(actual, expected);
+    }
+
     @AfterMethod
     public void teardown() {
         BrowserUtils.wait(3);
