@@ -60,7 +60,7 @@ public abstract class AbstractPageBase {
                 click(moduleElement).
                 build().perform();
 
-        BrowserUtils.wait(10);
+        BrowserUtils.wait(5);
     }
 
 }
